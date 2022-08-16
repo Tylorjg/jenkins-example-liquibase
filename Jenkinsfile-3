@@ -11,12 +11,12 @@ pipeline {
   stages {
     stage('Status') {
       steps {
-        sh 'liquibase status --url="jdbc:postgresql://localhost:5432/France" --changeLogFile=my_app-wrapper.xml --username=$POSTGRES_CREDS_USR --password=$POSTGRES_CREDS_PSW'
+        sh 'liquibase status --url="jdbc:postgresql://host.docker.internal:5432/France" --changeLogFile=my_app-wrapper.xml --username=$POSTGRES_CREDS_USR --password=$POSTGRES_CREDS_PSW'
       }
     }
     stage('Update') {
       steps {
-        sh 'liquibase update --url="jdbc:postgresql://localhost:5432/France" --changeLogFile=my_app-wrapper.xml --username=$POSTGRES_CREDS_USR --password=$POSTGRES_CREDS_PSW'
+        sh 'liquibase update --url="jdbc:postgresql://host.docker.internal:5432/France" --changeLogFile=my_app-wrapper.xml --username=$POSTGRES_CREDS_USR --password=$POSTGRES_CREDS_PSW'
       }
     }
   }
