@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker { 
         image 'liquibase/liquibase:4.4.'
-        args  '--net=host'
+        
         }
   }
   environment {
